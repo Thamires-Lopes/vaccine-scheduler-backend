@@ -7,6 +7,8 @@ const AppointmentSchema = mongoose.Schema(
         birthday: Date,
         vaccineDay: Date,
         vaccineTime: Date,
+        appointmentDone: { type: Boolean, default: false },
+        observation: String,
     },
     { timestamps: true }
 )
