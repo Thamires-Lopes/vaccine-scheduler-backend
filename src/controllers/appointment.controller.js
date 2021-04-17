@@ -5,6 +5,11 @@ const appointmentValidateForm = validateForm(appointmentSchema);
 
 class AppointmentController {
 
+    async index(req, res) {
+        const appointments = await AppointmentModel.find();
+        res.send({ appointments })
+    }
+
     async store(req, res) {
         try {
             appointmentValidateForm(req.body);
