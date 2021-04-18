@@ -72,6 +72,29 @@ class AppointmentController {
             res.status(400).send({ message: "Invalidate fields", error: error.message })
         }
     }
+
+    async update(req, res) {
+        console.log(req.body, req.params);
+        const {
+            params: { id },
+            body,
+        } = req;
+
+        try {
+
+            const appointment = await AppointmentModel.findOneAndUpdate({ _id: id }, body).lean();
+
+            res.send({
+                appointment: {
+                    ...appointment,
+                    ...body,
+                },
+            });
+
+        } catch (error) {
+            res.status(400).send({ message: "Cannot update" })
+        }
+    }
 }
 
 module.exports = new AppointmentController();
