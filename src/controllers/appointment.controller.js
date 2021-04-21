@@ -17,11 +17,9 @@ class AppointmentController {
             appointmentValidateForm(req.body);
 
             const { vaccineDay, vaccineTime, birthday } = req.body;
-            //todo before storing need to check if that the date and time is available
+            //before storing need to check if that the date and time is available
             //need refactoring
             const appointments = await AppointmentModel.find({ vaccineDay })
-
-            console.log(appointments.length)
             if (appointments.length < 20) {
                 const time = new Date(vaccineTime).getHours()
                 const sameTime = appointments.filter((info) => (new Date(info.vaccineTime).getHours()) === time)
@@ -71,7 +69,6 @@ class AppointmentController {
     }
 
     async update(req, res) {
-        console.log(req.body, req.params);
         const {
             params: { id },
             body,

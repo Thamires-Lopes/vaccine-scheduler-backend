@@ -22,10 +22,6 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use("/api", Routes);
 
-app.get("/", (request, response) => {
-    response.json({ message: "Hello World" });
-});
-
 app.listen(HTTP_PORT, () => {
     console.log(`Rodando na porta ${HTTP_PORT}`);
 });
