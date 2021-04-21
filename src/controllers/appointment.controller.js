@@ -53,12 +53,9 @@ class AppointmentController {
                             }
 
                         } else {
-                            console.log("Horário cheio")
                             throw new Error("Horário cheio")
                         }
-                        console.log("idoso")
                     } else {
-                        console.log("Horário cheio")
                         throw new Error("Horário cheio")
                     }
                 }
