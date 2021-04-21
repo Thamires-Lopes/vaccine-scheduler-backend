@@ -22,7 +22,7 @@ class AppointmentController {
             const appointments = await AppointmentModel.find({ vaccineDay })
 
             console.log(appointments.length)
-            if (appointments.length < 6) {
+            if (appointments.length < 20) {
                 const time = new Date(vaccineTime).getHours()
                 const sameTime = appointments.filter((info) => (new Date(info.vaccineTime).getHours()) === time)
 
